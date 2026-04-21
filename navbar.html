@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Reserva Hotel</title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-kit.css?v=2.0.1" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,300,600,700" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background: #f5f1eb;
+            color: #3d352f;
+        }
+
+        .search-hero {
+            position: relative;
+            min-height: 420px;
+            padding: 28px 0 110px;
+            background-image:
+                linear-gradient(90deg, rgba(245, 241, 235, 0.94) 0%, rgba(245, 241, 235, 0.84) 40%, rgba(245, 241, 235, 0.14) 65%, rgba(245, 241, 235, 0.06) 100%),
+                url("assets/img/antoine-barres.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .search-shell {
+            position: relative;
+            z-index: 5;
+            padding-top: 16px;
+        }
+
+        .country-picker {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.84);
+            border: 1px solid rgba(221, 214, 206, 0.9);
+            box-shadow: 0 14px 32px rgba(83, 66, 52, 0.1);
+        }
+
+        .country-picker-label {
+            margin: 0 6px 0 2px;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8b8077;
+        }
+
+        .country-btn {
+            min-width: 138px;
+            margin: 0;
+            border-radius: 999px;
+            border-color: #d7cdc4;
+            color: #4b4139;
+            background: #ffffff;
+            text-transform: none;
+            font-weight: 600;
+        }
+
+        .country-btn:hover,
+        .country-btn:focus {
+            background: #f7f2ed;
+            border-color: #c9bdb2;
+            color: #2d2621;
+        }
+
+        .country-btn.is-active {
+            background: #a89b90;
+            border-color: #a89b90;
+            color: #ffffff;
+        }
+
+        .booking-shell {
+            display: none;
+        }
+
+        .booking-shell.is-visible {
+            display: block;
+        }
+
+        .country-note {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #6d635b;
+        }
+
+        .country-name {
+            font-weight: 700;
+            color: #2d2621;
+        }
+
+        .search-panel {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #ddd6ce;
+            box-shadow: 0 16px 40px rgba(83, 66, 52, 0.12);
+            overflow: visible;
+        }
+
+        .search-row {
+            display: flex;
+            align-items: stretch;
+            flex-wrap: nowrap;
+        }
+
+        .search-field {
+            position: relative;
+            flex: 1 1 0;
+            min-width: 0;
+            border-right: 1px solid #e8e0d8;
+        }
+
+        .search-field-dates {
+            flex: 1.35 1 0;
+        }
+
+        .search-trigger {
+            flex: 0 0 180px;
+            padding: 12px 14px;
+            background: #ffffff;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            min-height: 78px;
+            padding: 0 20px;
+        }
+
+        .search-box i {
+            flex: 0 0 auto;
+            margin-right: 14px;
+            font-size: 1.25rem;
+            color: #302923;
+        }
+
+        .search-box input {
+            width: 100%;
+            border: 0;
+            box-shadow: none;
+            padding: 0;
+            height: auto;
+            font-size: 1rem;
+            color: #3d352f;
+            background: transparent;
+        }
+
+        .search-box input::placeholder {
+            color: #4d4740;
+            opacity: 1;
+        }
+
+        .search-box .form-control:focus {
+            border: 0;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        .search-box .form-control[readonly] {
+            cursor: pointer;
+        }
+
+        .search-summary {
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .search-summary-dates {
+            font-size: 0.92rem;
+            letter-spacing: -0.01em;
+        }
+
+        .search-label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #9a8f86;
+        }
+
+        .search-submit {
+            width: 100%;
+            height: 100%;
+            min-height: 62px;
+            margin: 0;
+            border-radius: 0;
+            background: #a89b90;
+            border-color: #a89b90;
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-transform: none;
+        }
+
+        .search-submit:hover,
+        .search-submit:focus {
+            background: #96887d;
+            border-color: #96887d;
+            color: #ffffff;
+        }
+
+        .search-interactive .search-box {
+            cursor: pointer;
+        }
+
+        .search-dropdown {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            z-index: 1100;
+            display: none;
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid #ddd6ce;
+            box-shadow: 0 18px 40px rgba(83, 66, 52, 0.16);
+        }
+
+        .search-dropdown.is-open {
+            display: block;
+        }
+
+        .search-dropdown-dates {
+            width: 430px;
+        }
+
+        .search-dropdown-guests {
+            width: 320px;
+        }
+
+        .date-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .date-field label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8b8077;
+        }
+
+        .date-field .input-group {
+            margin-bottom: 0;
+            border: 1px solid #e8e0d8;
+        }
+
+        .date-field .form-control {
+            padding: 12px 14px;
+            font-size: 0.95rem;
+        }
+
+        .date-field .input-group-addon {
+            cursor: pointer;
+        }
+
+        .counter-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 12px 0;
+            border-bottom: 1px solid #efe7df;
+        }
+
+        .counter-row:last-of-type {
+            border-bottom: 0;
+        }
+
+        .counter-copy {
+            flex: 1 1 auto;
+        }
+
+        .counter-copy strong {
+            display: block;
+            font-size: 0.96rem;
+            color: #2d2621;
+        }
+
+        .counter-copy span {
+            display: block;
+            font-size: 0.82rem;
+            color: #8f847a;
+        }
+
+        .counter-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            flex: 0 0 auto;
+        }
+
+        .counter-btn {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #cfc5bc;
+            background: #ffffff;
+            color: #5d5249;
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .counter-btn:hover,
+        .counter-btn:focus {
+            background: #f6f1ec;
+            outline: none;
+        }
+
+        .counter-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .counter-value {
+            min-width: 18px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d2621;
+        }
+
+        .dropdown-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 18px;
+        }
+
+        .dropdown-actions .btn {
+            margin: 0;
+            border-radius: 999px;
+            text-transform: none;
+        }
+
+        .search-copy {
+            max-width: 520px;
+            padding-top: 80px;
+        }
+
+        .search-copy h1 {
+            margin-bottom: 12px;
+            font-size: 2.3rem;
+            font-weight: 700;
+        }
+
+        .search-copy p {
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: #6d635b;
+        }
+
+        .bootstrap-datetimepicker-widget {
+            z-index: 2000 !important;
+        }
+
+        @media (max-width: 991px) {
+            .search-hero {
+                min-height: auto;
+                padding-bottom: 52px;
+            }
+
+            .search-copy {
+                padding-top: 38px;
+            }
+
+            .search-row {
+                flex-wrap: wrap;
+            }
+
+            .search-field,
+            .search-trigger {
+                flex: 0 0 100%;
+                max-width: 100%;
+                border-right: 0;
+            }
+
+            .search-field {
+                border-bottom: 1px solid #e8e0d8;
+            }
+
+            .search-trigger {
+                padding: 0;
+            }
+
+            .search-dropdown,
+            .search-dropdown-dates,
+            .search-dropdown-guests {
+                position: static;
+                width: auto;
+                margin: 0 16px 16px;
+            }
+
+            .date-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .country-picker {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .country-picker-label {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .country-btn {
+                flex: 1 1 calc(50% - 5px);
+                min-width: 0;
+            }
+
+            .search-box {
+                padding: 0 16px;
+                min-height: 72px;
+            }
+
+            .counter-row {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <section class="search-hero">
+        <div class="container search-shell">
+            <div class="country-picker">
+                <span class="country-picker-label">Escolhe o mercado</span>
+                <button class="btn btn-outline-default country-btn" type="button" data-country="Portugal">Portugal</button>
+                <button class="btn btn-outline-default country-btn" type="button" data-country="Brasil">Brasil</button>
+            </div>
+
+            <div class="booking-shell" id="booking-shell">
+            <p class="country-note">Reserva para <span class="country-name" id="selected-country-copy">Portugal</span></p>
+
+            <div class="search-panel">
+                <div class="search-row">
+                    <div class="search-field">
+                        <div class="search-box">
+                            <i class="nc-icon nc-world-2" aria-hidden="true"></i>
+                            <div class="w-100">
+                                <span class="search-label">Pais</span>
+                                <input type="text" class="form-control" id="country-display" value="" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-field search-field-dates search-interactive" data-dropdown-root>
+                        <div class="search-box" data-dropdown-toggle>
+                            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                            <div class="w-100">
+                                <span class="search-label">Datas</span>
+                                <input type="text" class="form-control search-summary search-summary-dates" id="hotel-date-range" placeholder="Chegada - Partida" readonly>
+                            </div>
+                        </div>
+                        <div class="search-dropdown search-dropdown-dates" data-dropdown-panel>
+                            <div class="date-grid">
+                                <div class="date-field">
+                                    <label for="hotel-checkin">Check-in</label>
+                                    <div class="input-group date" id="hotel-checkin-picker">
+                                        <input type="text" class="form-control" id="hotel-checkin" autocomplete="off">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="date-field">
+                                    <label for="hotel-checkout">Check-out</label>
+                                    <div class="input-group date" id="hotel-checkout-picker">
+                                        <input type="text" class="form-control" id="hotel-checkout" autocomplete="off">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-actions">
+                                <button class="btn btn-outline-default btn-round" type="button" data-close-dropdown>Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-field search-interactive" data-dropdown-root>
+                        <div class="search-box" data-dropdown-toggle>
+                            <i class="nc-icon nc-single-02" aria-hidden="true"></i>
+                            <div class="w-100">
+                                <span class="search-label">Ocupacao</span>
+                                <input type="text" class="form-control search-summary" id="hotel-guests-summary" value="1 quarto - 2A" readonly>
+                            </div>
+                        </div>
+                        <div class="search-dropdown search-dropdown-guests" data-dropdown-panel>
+                            <div class="counter-row">
+                                <div class="counter-copy">
+                                    <strong>Quartos</strong>
+                                    <span>Quantos quartos queres reservar</span>
+                                </div>
+                                <div class="counter-controls" data-counter="rooms" data-min="1" data-max="8" data-value="1">
+                                    <button class="counter-btn" type="button" data-action="decrement">-</button>
+                                    <span class="counter-value" data-counter-value>1</span>
+                                    <button class="counter-btn" type="button" data-action="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="counter-row">
+                                <div class="counter-copy">
+                                    <strong>Adultos</strong>
+                                    <span>Com mais de 12 anos</span>
+                                </div>
+                                <div class="counter-controls" data-counter="adults" data-min="1" data-max="12" data-value="2">
+                                    <button class="counter-btn" type="button" data-action="decrement">-</button>
+                                    <span class="counter-value" data-counter-value>2</span>
+                                    <button class="counter-btn" type="button" data-action="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="counter-row">
+                                <div class="counter-copy">
+                                    <strong>Criancas</strong>
+                                    <span>Dos 0 aos 12 anos</span>
+                                </div>
+                                <div class="counter-controls" data-counter="children" data-min="0" data-max="8" data-value="0">
+                                    <button class="counter-btn" type="button" data-action="decrement">-</button>
+                                    <span class="counter-value" data-counter-value>0</span>
+                                    <button class="counter-btn" type="button" data-action="increment">+</button>
+                                </div>
+                            </div>
+                            <div class="dropdown-actions">
+                                <button class="btn btn-outline-default btn-round" type="button" data-close-dropdown>Aplicar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-field">
+                        <div class="search-box">
+                            <i class="fa fa-bed" aria-hidden="true"></i>
+                            <div class="w-100">
+                                <span class="search-label">Tipo de quarto</span>
+                                <select class="form-control">
+                                    <option selected>Selecionar tipo</option>
+                                    <option>Standard</option>
+                                    <option>Deluxe</option>
+                                    <option>Suite Junior</option>
+                                    <option>Suite</option>
+                                    <option>Familiar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-trigger">
+                        <button class="btn search-submit">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="search-copy">
+                <h1>Barra de pesquisa estilo booking</h1>
+                <p>Primeiro escolhes o mercado do grupo hoteleiro e so depois aparece a barra de reserva com o pais ja definido, seguida de datas, ocupacao e tipo de quarto.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/tether.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap-switch.min.js"></script>
+<script src="assets/js/nouislider.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/paper-kit.js?v=2.0.1"></script>
+<script>
+    $(function () {
+        function initPicker(selector, minDate) {
+            return $(selector).datetimepicker({
+                format: "DD/MM/YYYY",
+                useCurrent: false,
+                allowInputToggle: true,
+                ignoreReadonly: true,
+                minDate: minDate || moment().startOf("day"),
+                widgetPositioning: {
+                    horizontal: "left",
+                    vertical: "bottom"
+                },
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: "fa fa-chevron-left",
+                    next: "fa fa-chevron-right",
+                    today: "fa fa-screenshot",
+                    clear: "fa fa-trash",
+                    close: "fa fa-remove"
+                }
+            });
+        }
+
+        function updateDateRange() {
+            var startValue = $("#hotel-checkin").val();
+            var endValue = $("#hotel-checkout").val();
+
+            if (startValue && endValue) {
+                $("#hotel-date-range").val(startValue + " - " + endValue);
+            } else if (startValue) {
+                $("#hotel-date-range").val(startValue);
+            } else {
+                $("#hotel-date-range").val("");
+                $("#hotel-date-range").attr("placeholder", "Chegada - Partida");
+            }
+        }
+
+        function formatStaySummary() {
+            var rooms = parseInt($('[data-counter="rooms"]').attr("data-value"), 10);
+            var adults = parseInt($('[data-counter="adults"]').attr("data-value"), 10);
+            var children = parseInt($('[data-counter="children"]').attr("data-value"), 10);
+            var parts = [
+                rooms + " " + (rooms === 1 ? "quarto" : "quartos"),
+                adults + "A"
+            ];
+
+            if (children > 0) {
+                parts.push(children + "C");
+            }
+
+            $("#hotel-guests-summary").val(parts.join(" - "));
+            $("#hotel-guests-summary").attr("title", rooms + " " + (rooms === 1 ? "quarto" : "quartos") + ", " + adults + " " + (adults === 1 ? "adulto" : "adultos") + (children > 0 ? ", " + children + " " + (children === 1 ? "crianca" : "criancas") : ""));
+        }
+
+        function setCountry(country) {
+            $("#country-display").val(country);
+            $("#selected-country-copy").text(country);
+            $("#booking-shell").addClass("is-visible");
+            $(".country-btn").removeClass("is-active");
+            $('.country-btn[data-country="' + country + '"]').addClass("is-active");
+        }
+
+        function updateCounterState(counter) {
+            var value = parseInt(counter.attr("data-value"), 10);
+            var min = parseInt(counter.attr("data-min"), 10);
+            var max = parseInt(counter.attr("data-max"), 10);
+
+            counter.find("[data-counter-value]").text(value);
+            counter.find('[data-action="decrement"]').prop("disabled", value <= min);
+            counter.find('[data-action="increment"]').prop("disabled", value >= max);
+        }
+
+        function closeAllDropdowns(exceptRoot) {
+            $("[data-dropdown-root]").each(function () {
+                var root = $(this);
+                if (!exceptRoot || root[0] !== exceptRoot[0]) {
+                    root.find("[data-dropdown-panel]").removeClass("is-open");
+                }
+            });
+        }
+
+        initPicker("#hotel-checkin-picker");
+        initPicker("#hotel-checkout-picker");
+
+        $("#hotel-checkin-picker").on("dp.change", function (event) {
+            if (event.date) {
+                $("#hotel-checkout-picker").data("DateTimePicker").minDate(event.date.clone().startOf("day"));
+
+                var checkout = $("#hotel-checkout-picker").data("DateTimePicker").date();
+                if (!checkout || checkout.isBefore(event.date, "day")) {
+                    $("#hotel-checkout-picker").data("DateTimePicker").date(event.date.clone().add(1, "day"));
+                }
+            }
+
+            updateDateRange();
+        });
+
+        $("#hotel-checkout-picker").on("dp.change", function () {
+            updateDateRange();
+        });
+
+        $("#hotel-checkin-picker").data("DateTimePicker").date(moment().add(2, "day"));
+        $("#hotel-checkout-picker").data("DateTimePicker").date(moment().add(5, "day"));
+        updateDateRange();
+
+        $('[data-counter]').each(function () {
+            updateCounterState($(this));
+        });
+        formatStaySummary();
+
+        $(document).on("click", ".country-btn", function () {
+            setCountry($(this).attr("data-country"));
+        });
+
+        $(document).on("click", "[data-dropdown-toggle]", function (event) {
+            event.stopPropagation();
+            var root = $(this).closest("[data-dropdown-root]");
+            var panel = root.find("[data-dropdown-panel]");
+            var shouldOpen = !panel.hasClass("is-open");
+
+            closeAllDropdowns(root);
+            panel.toggleClass("is-open", shouldOpen);
+        });
+
+        $(document).on("click", "[data-dropdown-panel]", function (event) {
+            event.stopPropagation();
+        });
+
+        $(document).on("click", "[data-close-dropdown]", function () {
+            $(this).closest("[data-dropdown-panel]").removeClass("is-open");
+        });
+
+        $(document).on("click", "[data-counter] [data-action]", function (event) {
+            event.stopPropagation();
+
+            var button = $(this);
+            var counter = button.closest("[data-counter]");
+            var value = parseInt(counter.attr("data-value"), 10);
+            var min = parseInt(counter.attr("data-min"), 10);
+            var max = parseInt(counter.attr("data-max"), 10);
+
+            if (button.attr("data-action") === "increment" && value < max) {
+                value += 1;
+            }
+
+            if (button.attr("data-action") === "decrement" && value > min) {
+                value -= 1;
+            }
+
+            counter.attr("data-value", value);
+            updateCounterState(counter);
+            formatStaySummary();
+        });
+
+        $(document).on("click", function () {
+            closeAllDropdowns();
+        });
+    });
+</script>
+</body>
+</html>

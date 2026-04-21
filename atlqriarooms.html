@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Quartos | Hotel Portugal</title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-kit.css?v=2.0.1" rel="stylesheet" />
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+
+    <style>
+        :root {
+            --atlq-slate: #d9dde4;
+        }
+
+        body {
+            background: var(--atlq-slate);
+            color: #2f2924;
+        }
+
+        .wrapper {
+            padding-top: 124px;
+        }
+
+        .atlq-navbar .container {
+            position: relative;
+            min-height: 88px;
+            width: 100%;
+            max-width: none;
+            padding-left: 28px;
+            padding-right: 28px;
+        }
+
+        .atlq-navbar .navbar-translate {
+            position: absolute;
+            left: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 60;
+        }
+
+        .atlq-navbar .navbar-brand {
+            position: static;
+            margin: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            flex: 0 0 auto;
+            position: relative;
+            z-index: 61;
+            pointer-events: auto;
+        }
+
+        .atlq-navbar .navbar-brand > div {
+            height: auto !important;
+            min-height: 96px;
+            display: flex !important;
+            align-items: center !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .atlq-navbar .navbar-brand img {
+            display: block;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .atlq-navbar .navbar-collapse {
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+            padding-right: 0;
+        }
+
+        .atlq-navbar .navbar-nav.ml-auto {
+            margin-right: 0;
+        }
+
+        .atlq-navbar .navbar-nav.ml-auto .nav-link {
+            font-size: 0.92rem;
+        }
+
+        .atlq-navbar .navbar-nav.ml-auto .nav-item {
+            margin-left: 18px;
+        }
+
+        .atlq-navbar .navbar-nav.hidden-sm-down {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex !important;
+            flex-direction: row;
+            align-items: center;
+            margin: 0;
+            z-index: 40;
+            white-space: nowrap;
+            pointer-events: auto;
+        }
+
+        .atlq-navbar .navbar-nav.hidden-sm-down .nav-link {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            position: relative;
+            z-index: 41;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .atlq-navbar .navbar-nav.hidden-sm-down .nav-item {
+            margin: 0 8px;
+            pointer-events: auto;
+        }
+
+        .atlq-navbar {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .atlq-navbar .nav-link,
+        .atlq-navbar .navbar-brand,
+        .atlq-navbar .navbar-toggler,
+        .atlq-navbar .navbar-toggler-bar {
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .atlq-navbar:not(.navbar-transparent) {
+            background-color: #252d40 !important;
+            border-bottom: 1px solid rgba(202, 162, 74, 0.18);
+            box-shadow: 0 10px 24px rgba(20, 25, 36, 0.18);
+        }
+
+        .atlq-navbar:not(.navbar-transparent) .nav-link,
+        .atlq-navbar:not(.navbar-transparent) .navbar-brand,
+        .atlq-navbar:not(.navbar-transparent) .navbar-toggler,
+        .atlq-navbar:not(.navbar-transparent) .navbar-toggler-bar,
+        .atlq-navbar.navbar-transparent .collapse.show .nav-link,
+        .atlq-navbar.navbar-transparent .collapse.show .navbar-brand {
+            color: #caa24a !important;
+        }
+
+        .atlq-navbar:not(.navbar-transparent) .navbar-toggler-bar,
+        .atlq-navbar.navbar-transparent .collapse.show .navbar-toggler-bar {
+            background-color: #caa24a !important;
+        }
+
+        .atlq-navbar:not(.navbar-transparent) .nav-link:hover,
+        .atlq-navbar:not(.navbar-transparent) .nav-link:focus,
+        .atlq-navbar:not(.navbar-transparent) .navbar-brand:hover,
+        .atlq-navbar:not(.navbar-transparent) .navbar-brand:focus {
+            color: #e0bb67 !important;
+        }
+
+        .atlq-navbar .collapse.navbar-collapse {
+            background: transparent;
+        }
+
+        .atlq-clouds {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            width: 100% !important;
+            height: 360px;
+            background-repeat: repeat-x;
+            background-position: 0 100%;
+            background-size: auto 100%;
+            animation: atlqCloudDrift 120s linear infinite !important;
+            transform: none !important;
+            will-change: background-position;
+        }
+
+        .hero-header {
+            min-height: 100vh !important;
+            height: 100vh;
+            max-height: none !important;
+        }
+
+        @keyframes atlqCloudDrift {
+            0% {
+                background-position: 0 100%;
+            }
+            100% {
+                background-position: -2400px 100%;
+            }
+        }
+
+        .rooms-hero {
+            position: relative;
+            padding: 160px 0 86px;
+            background-image:
+                linear-gradient(115deg, rgba(24, 31, 43, 0.82) 0%, rgba(34, 42, 58, 0.62) 42%, rgba(246, 242, 236, 0.12) 100%),
+                url("assets/img/homepage.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .rooms-hero .filter {
+            background: rgba(18, 24, 32, 0.2);
+        }
+
+        .rooms-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 8px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #d7dde7;
+        }
+
+        .rooms-hero h1 {
+            max-width: 760px;
+            margin: 0 0 14px;
+            font-size: 4.6rem;
+            font-weight: 700;
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            color: #ffffff;
+        }
+
+        .rooms-hero p {
+            max-width: 700px;
+            margin: 0;
+            font-size: 1.12rem;
+            line-height: 1.75;
+            color: rgba(242, 245, 248, 0.9);
+        }
+
+        .summary-band {
+            margin-top: 36px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .summary-band .container,
+        .rooms-section .container {
+            width: 100%;
+            max-width: 1480px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .summary-card {
+            padding: 22px 24px;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.42);
+            box-shadow: 0 18px 40px rgba(84, 67, 52, 0.08);
+            backdrop-filter: blur(6px);
+        }
+
+        .summary-kicker {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8b95a3;
+        }
+
+        .summary-value {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1.85rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #2f2924;
+        }
+
+        .summary-text {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #66707f;
+        }
+
+        .rooms-section {
+            padding: 56px 0 90px;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .section-head h2 {
+            margin: 0 0 10px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .section-head p {
+            max-width: 620px;
+            margin: 0;
+            color: #72675f;
+            line-height: 1.7;
+        }
+
+        .pricing-note {
+            margin: 0;
+            font-size: 0.84rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #9a8a7f;
+            white-space: nowrap;
+        }
+
+        .room-card {
+            margin-bottom: 28px;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.38);
+            box-shadow: 0 18px 40px rgba(86, 70, 56, 0.08);
+            overflow: hidden;
+        }
+
+        .room-card .row.no-gutters {
+            align-items: stretch;
+        }
+
+        .room-card .col-lg-7,
+        .room-card .col-lg-5 {
+            display: flex;
+        }
+
+        .room-media {
+            position: relative;
+            flex: 1 1 auto;
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .room-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            padding: 20px 22px 18px;
+            background: linear-gradient(180deg, rgba(18, 14, 10, 0) 0%, rgba(18, 14, 10, 0.7) 100%);
+            color: #ffffff;
+        }
+
+        .room-counter {
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .room-overlay i {
+            margin: 0 6px;
+            font-size: 0.95rem;
+        }
+
+        .room-body {
+            padding: 34px 34px 28px;
+        }
+
+        .room-topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .room-name {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .room-price {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .room-price small {
+            display: block;
+            margin-bottom: 2px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8c95a3;
+        }
+
+        .room-price strong {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d2722;
+        }
+
+        .room-price span {
+            font-size: 0.92rem;
+            color: #687280;
+        }
+
+        .room-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .room-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.44);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #64707f;
+        }
+
+        .room-highlight {
+            margin-bottom: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #544941;
+        }
+
+        .room-description {
+            margin-bottom: 24px;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #5f6978;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px 18px;
+            margin-bottom: 28px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: #5b514a;
+        }
+
+        .feature-item i {
+            width: 18px;
+            text-align: center;
+            color: #7d8898;
+        }
+
+        .room-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(126, 138, 159, 0.18);
+        }
+
+        .inventory-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.42);
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #667180;
+        }
+
+        .room-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-room-secondary {
+            border-color: #3b322c;
+            color: #3b322c;
+            background: transparent;
+            text-transform: none;
+        }
+
+        .btn-room-secondary:hover,
+        .btn-room-secondary:focus {
+            background: #3b322c;
+            border-color: #3b322c;
+            color: #ffffff;
+        }
+
+        .btn-room-primary {
+            background: #f6c240;
+            border-color: #f6c240;
+            color: #2e251d;
+            text-transform: none;
+            font-weight: 700;
+        }
+
+        .btn-room-primary:hover,
+        .btn-room-primary:focus {
+            background: #ebb324;
+            border-color: #ebb324;
+            color: #2e251d;
+        }
+
+        .page-intro {
+            font-size: 0.95rem;
+            color: #7b6f66;
+        }
+
+        .comparison-strip {
+            margin-top: 12px;
+            padding: 22px 24px;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.34);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .comparison-item {
+            padding: 18px 16px;
+            background: rgba(255, 255, 255, 0.44);
+            border: 1px solid rgba(126, 138, 159, 0.18);
+        }
+
+        .comparison-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #2f2924;
+        }
+
+        .comparison-item span {
+            display: block;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: #68727f;
+        }
+
+        .social-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .social-footer li {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+        }
+
+        .social-footer a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border: 0;
+            border-radius: 0;
+            color: #caa24a;
+            line-height: 1;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+
+        .social-footer i {
+            font-size: 1.25rem;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .atlq-footer-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 64px;
+            padding: 0 10px;
+        }
+
+        .atlq-footer-left,
+        .atlq-footer-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .atlq-footer-right {
+            margin-left: auto;
+        }
+
+        .footer {
+            background-color: #252d40;
+            border-top: 1px solid rgba(202, 162, 74, 0.18);
+        }
+
+        .footer a,
+        .atlq-footer-bar .copyright {
+            margin: 0;
+            color: #caa24a;
+            font-size: 0.9em;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .footer a:hover,
+        .footer a:focus,
+        .social-footer a:hover,
+        .social-footer a:focus {
+            color: #e0bb67;
+            background: transparent;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1199px) {
+            .summary-grid,
+            .comparison-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .atlq-navbar .container {
+                min-height: 118px;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .atlq-navbar .navbar-translate {
+                position: static;
+                transform: none;
+                width: 100%;
+            }
+
+            .atlq-navbar .navbar-brand {
+                position: static;
+            }
+
+            .atlq-navbar .navbar-brand > div {
+                min-height: 102px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+                align-items: center !important;
+            }
+
+            .atlq-navbar .navbar-brand img {
+                max-height: 72px !important;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+
+            .atlq-navbar .collapse.navbar-collapse {
+                position: absolute;
+                top: calc(100% - 6px);
+                right: 16px;
+                left: auto;
+                width: auto;
+                max-width: calc(100vw - 32px);
+                margin-top: 0;
+                padding: 12px 16px;
+                background: rgba(34, 34, 39, 0.78);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 12px;
+                backdrop-filter: blur(8px);
+                transform: none;
+            }
+
+            .atlq-navbar .navbar-nav.ml-auto {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: flex-end;
+                width: auto;
+                gap: 8px 14px;
+                margin-right: 0;
+            }
+
+            .atlq-navbar .navbar-nav.ml-auto .nav-item {
+                margin-left: 0;
+                width: 100%;
+                text-align: right;
+            }
+
+            .atlq-navbar .navbar-nav.ml-auto .nav-link {
+                padding-left: 0;
+                padding-right: 0;
+                font-size: 0.9rem;
+                white-space: nowrap;
+            }
+
+            .atlq-navbar .navbar-nav.hidden-sm-down {
+                display: none !important;
+            }
+
+            .atlq-clouds {
+                height: 280px;
+                background-size: auto 100%;
+            }
+
+            .hero-header {
+                min-height: 100vh !important;
+                height: 100vh;
+            }
+
+            .room-media {
+                height: auto;
+                min-height: 340px;
+            }
+
+            .room-topline,
+            .room-footer,
+            .section-head {
+                display: block;
+            }
+
+            .room-price {
+                margin-top: 12px;
+                text-align: left;
+            }
+
+            .pricing-note {
+                margin-top: 10px;
+            }
+
+            .room-actions {
+                margin-top: 16px;
+                flex-wrap: wrap;
+            }
+
+            .atlq-footer-bar {
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .summary-band {
+                margin-top: 24px;
+            }
+
+            .rooms-section {
+                padding-top: 40px;
+            }
+
+            .wrapper {
+                padding-top: 134px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .summary-grid,
+            .comparison-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wrapper {
+                padding-top: 138px;
+            }
+
+            .room-media {
+                height: auto;
+                min-height: 280px;
+            }
+
+            .room-body {
+                padding: 24px 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-toggleable-md fixed-top atlq-navbar">
+    <div class="container">
+        <ul class="navbar-nav hidden-sm-down">
+            <li class="nav-item">
+                <a href="atlqria.html" class="nav-link">Ria</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">|</a>
+            </li>
+            <li class="nav-item">
+                <a href="atlqriarooms.html" class="nav-link">Quartos</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">|</a>
+            </li>
+            <li class="nav-item">
+                <a href="atlqriaservices.html" class="nav-link">Servicos</a>
+            </li>
+        </ul>
+        <div class="navbar-translate">
+            <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+                <span class="navbar-toggler-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" style="padding-top: 14px; padding-bottom: 0;">
+                <div style="height: 90px; display: flex; align-items: flex-start;">
+                    <img src="assets/img/logo.png" alt="Atlantiq logo" style="max-height: 82px; width: auto; display: block;">
+                </div>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Licensas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <section class="summary-band">
+        <div class="container">
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <span class="summary-kicker">Categorias</span>
+                    <span class="summary-value">6</span>
+                    <p class="summary-text">Da Standard a Suite Premium, com progressao clara de area, vista e exclusividade.</p>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-kicker">Inventario</span>
+                    <span class="summary-value">88</span>
+                    <p class="summary-text">Mix pensado para equilibrar ocupacao, ticket medio e posicionamento premium do hotel.</p>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-kicker">Areas</span>
+                    <span class="summary-value">20-70+ m²</span>
+                    <p class="summary-text">Escalas bem definidas entre quarto base, quartos melhorados, suites abertas e suites com sala.</p>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-kicker">Preco Desde</span>
+                    <span class="summary-value">145€</span>
+                    <p class="summary-text">Valores colocados como mockup visual para a pagina e faceis de substituir por tarifa real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rooms-section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <h2>Escolhe o quarto certo para cada perfil de hospede.</h2>
+                    <p>Cada tipologia abaixo mostra a diferenca de tamanho, cama, vista ou zona de estar, numero de unidades disponiveis no hotel e um preco indicativo “desde” para te ajudar a comunicar hierarquia e valor.</p>
+                </div>
+                <p class="pricing-note">Precos mockup por noite · BB incluido</p>
+            </div>
+
+            <div class="comparison-strip">
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <strong>Standard</strong>
+                        <span>20-24 m² · casal ou twin · base do hotel</span>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Superior</strong>
+                        <span>24-28 m² · melhor vista ou varanda</span>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Deluxe</strong>
+                        <span>28-32 m² · sofa ou estar informal</span>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Junior Suite</strong>
+                        <span>35-40 m² · sala em open space</span>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Suite</strong>
+                        <span>45-60 m² · sala separada</span>
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Suite Premium</strong>
+                        <span>70+ m² · topo do hotel e melhor vista</span>
+                    </div>
+                </div>
+            </div>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/bruno-abatti.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 1/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Standard</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>145€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">20-24 m²</span>
+                                <span class="room-chip">Cama casal ou twin</span>
+                                <span class="room-chip">Categoria base</span>
+                            </div>
+                            <div class="room-highlight">A tipologia mais rentavel do hotel, pensada para volume, simplicidade e boa conversao.</div>
+                            <p class="room-description">Ideal para a base operacional do hotel portugues, o quarto Standard entrega conforto essencial, layout eficiente e o melhor ponto de entrada para a experiencia da marca. E o produto certo para reservas diretas, corporate leve e escapadinhas de curta duracao.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-bed"></i><span>Casal ou twin</span></div>
+                                <div class="feature-item"><i class="fa fa-wifi"></i><span>Wi-Fi premium</span></div>
+                                <div class="feature-item"><i class="fa fa-shower"></i><span>Casa de banho funcional</span></div>
+                                <div class="feature-item"><i class="fa fa-tv"></i><span>Smart TV</span></div>
+                                <div class="feature-item"><i class="fa fa-snowflake-o"></i><span>Climatizacao</span></div>
+                                <div class="feature-item"><i class="fa fa-coffee"></i><span>Cha e cafe</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>40 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/daniel-olahh.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 2/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Superior</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>178€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">24-28 m²</span>
+                                <span class="room-chip">Melhor vista</span>
+                                <span class="room-chip">Varanda opcional</span>
+                            </div>
+                            <div class="room-highlight">Mais area e melhor relacao emocional com o destino, sem saltar ainda para o universo suite.</div>
+                            <p class="room-description">A categoria Superior sobe um nivel na experiencia do quarto base, seja por enquadramento de vista, seja por varanda ou uma sensacao geral de maior desafogo. Funciona muito bem como upsell natural no motor de reservas e em campanhas de valor acrescentado.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-picture-o"></i><span>Vista melhorada</span></div>
+                                <div class="feature-item"><i class="fa fa-sun-o"></i><span>Varanda em selecao</span></div>
+                                <div class="feature-item"><i class="fa fa-bed"></i><span>Casal king ou twin</span></div>
+                                <div class="feature-item"><i class="fa fa-glass"></i><span>Mini-bar</span></div>
+                                <div class="feature-item"><i class="fa fa-wifi"></i><span>Wi-Fi premium</span></div>
+                                <div class="feature-item"><i class="fa fa-bath"></i><span>Amenities melhoradas</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>18 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/fabio-mangione.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 3/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Deluxe</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>215€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">28-32 m²</span>
+                                <span class="room-chip">Sofa ou estar</span>
+                                <span class="room-chip">Mais conforto</span>
+                            </div>
+                            <div class="room-highlight">Um quarto para quem quer ficar mais tempo, trabalhar melhor ou simplesmente desfrutar mais do espaco.</div>
+                            <p class="room-description">A Deluxe introduz uma zona de estar ou sofa, o que melhora a leitura de valor e permite estadias mais longas sem ainda entrar na arquitetura de suite. E a categoria com forte potencial para clientes lazer premium e casais que querem mais conforto.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-couch"></i><span>Sofa ou lounge corner</span></div>
+                                <div class="feature-item"><i class="fa fa-bed"></i><span>King size ou twin</span></div>
+                                <div class="feature-item"><i class="fa fa-cutlery"></i><span>Espaco para room service</span></div>
+                                <div class="feature-item"><i class="fa fa-wifi"></i><span>Ligacao rapida</span></div>
+                                <div class="feature-item"><i class="fa fa-briefcase"></i><span>Secretaria</span></div>
+                                <div class="feature-item"><i class="fa fa-coffee"></i><span>Maquina de cafe</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>12 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/ilya-yakover.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 4/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Junior Suite</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>265€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">35-40 m²</span>
+                                <span class="room-chip">Open space</span>
+                                <span class="room-chip">Sala integrada</span>
+                            </div>
+                            <div class="room-highlight">Primeira entrada no territorio suite, com percecao premium clara e um espaço aberto mais cenografico.</div>
+                            <p class="room-description">Pensada para quem procura mais area sem perder fluidez, a Junior Suite junta cama e sala num unico ambiente sofisticado. E excelente para mercados de escapadinha, celebracao e clientes que valorizam design e sensacao de exclusividade.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-object-group"></i><span>Open space lounge</span></div>
+                                <div class="feature-item"><i class="fa fa-bed"></i><span>Cama king premium</span></div>
+                                <div class="feature-item"><i class="fa fa-glass"></i><span>Mini-bar reforcado</span></div>
+                                <div class="feature-item"><i class="fa fa-bath"></i><span>Banho mais generoso</span></div>
+                                <div class="feature-item"><i class="fa fa-wifi"></i><span>Streaming ready</span></div>
+                                <div class="feature-item"><i class="fa fa-star-o"></i><span>Ideal para upsell romantico</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>10 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/joshua-stannard.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 5/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Suite</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>340€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">45-60 m²</span>
+                                <span class="room-chip">Sala separada</span>
+                                <span class="room-chip">Premium lifestyle</span>
+                            </div>
+                            <div class="room-highlight">Mais autonomia, melhor privacidade e uma estrutura perfeita para estadias longas ou segmentos de maior valor.</div>
+                            <p class="room-description">A Suite separa claramente zona de descanso e zona social, elevando a experiencia para um patamar premium mais tradicional. E a opcao certa para clientes de longa estadia, familias pequenas ou quem quer receber, trabalhar e descansar sem compromissos.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-home"></i><span>Sala independente</span></div>
+                                <div class="feature-item"><i class="fa fa-bed"></i><span>Master bedroom</span></div>
+                                <div class="feature-item"><i class="fa fa-coffee"></i><span>Coffee station</span></div>
+                                <div class="feature-item"><i class="fa fa-briefcase"></i><span>Desk executive</span></div>
+                                <div class="feature-item"><i class="fa fa-shield"></i><span>Mais privacidade</span></div>
+                                <div class="feature-item"><i class="fa fa-bath"></i><span>Banho premium</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>6 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="room-card">
+                <div class="row no-gutters">
+                    <div class="col-lg-7">
+                        <div class="room-media" style="background-image: url('assets/img/uriel-soberanes.jpg');">
+                            <div class="room-overlay">
+                                <div class="room-counter">Categoria 6/6</div>
+                                <div>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="room-body">
+                            <div class="room-topline">
+                                <h3 class="room-name">Suite Premium</h3>
+                                <div class="room-price">
+                                    <small>Desde</small>
+                                    <strong>520€</strong>
+                                    <span>/noite</span>
+                                </div>
+                            </div>
+                            <div class="room-meta">
+                                <span class="room-chip">70 m² ou mais</span>
+                                <span class="room-chip">Penthouse ou melhor vista</span>
+                                <span class="room-chip">Topo do hotel</span>
+                            </div>
+                            <div class="room-highlight">A categoria assinatura do hotel, feita para posicionamento, imagem e ADR maximo.</div>
+                            <p class="room-description">Com area generosa, localizacao privilegiada e narrativa de exclusividade, a Suite Premium e o produto bandeira do hotel. Aqui faz sentido mostrar o melhor enquadramento, os materiais mais ricos e todos os detalhes que sustentam o topo da piramide de receita.</p>
+                            <div class="feature-grid">
+                                <div class="feature-item"><i class="fa fa-diamond"></i><span>Top tier experience</span></div>
+                                <div class="feature-item"><i class="fa fa-eye"></i><span>Melhor vista do hotel</span></div>
+                                <div class="feature-item"><i class="fa fa-home"></i><span>Lounge e refeicoes</span></div>
+                                <div class="feature-item"><i class="fa fa-star"></i><span>Welcome premium</span></div>
+                                <div class="feature-item"><i class="fa fa-bath"></i><span>Banheira e duche walk-in</span></div>
+                                <div class="feature-item"><i class="fa fa-glass"></i><span>Bar selection</span></div>
+                            </div>
+                            <div class="room-footer">
+                                <span class="inventory-pill"><i class="fa fa-key"></i>2 unidades no hotel</span>
+                                <div class="room-actions">
+                                    <button class="btn btn-outline-default btn-room-secondary">Saber mais</button>
+                                    <button class="btn btn-warning btn-room-primary">Reservar agora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="atlq-footer-bar">
+            <div class="atlq-footer-left">
+                <ul class="social-footer">
+                    <li>
+                        <a rel="tooltip" title="Twitter" data-placement="top" href="">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="tooltip" title="Facebook" data-placement="top" href="">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="tooltip" title="Instagram" data-placement="top" href="">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="atlq-footer-right">
+                <span class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Atlantiq Group
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        var heroTitle = document.getElementById('hero-title');
+        var heroTitleTop = document.getElementById('hero-title-top');
+        var heroTitleBottom = document.getElementById('hero-title-bottom');
+
+        if (!heroTitle || !heroTitleTop || !heroTitleBottom) {
+            return;
+        }
+
+        function applyHeroTitleStyle() {
+            var isMobile = window.innerWidth <= 767;
+
+            heroTitleTop.style.display = 'block';
+            heroTitleBottom.style.display = 'block';
+
+            if (isMobile) {
+                heroTitle.style.color = '#f5f5f5';
+                heroTitle.style.background = 'none';
+                heroTitle.style.backgroundImage = 'none';
+                heroTitle.style.webkitBackgroundClip = 'border-box';
+                heroTitle.style.backgroundClip = 'border-box';
+                heroTitle.style.webkitTextFillColor = '#f5f5f5';
+                heroTitle.style.textShadow = '0 2px 10px rgba(0, 0, 0, 0.28)';
+                heroTitleTop.style.color = '#f5f5f5';
+                heroTitleTop.style.background = 'none';
+                heroTitleTop.style.backgroundImage = 'none';
+                heroTitleTop.style.webkitBackgroundClip = 'border-box';
+                heroTitleTop.style.backgroundClip = 'border-box';
+                heroTitleTop.style.webkitTextFillColor = '#f5f5f5';
+                heroTitleBottom.style.color = '#f5f5f5';
+                heroTitleBottom.style.background = 'none';
+                heroTitleBottom.style.backgroundImage = 'none';
+                heroTitleBottom.style.webkitBackgroundClip = 'border-box';
+                heroTitleBottom.style.backgroundClip = 'border-box';
+                heroTitleBottom.style.webkitTextFillColor = '#f5f5f5';
+            } else {
+                heroTitle.style.color = '#ffffff';
+                heroTitle.style.background = 'none';
+                heroTitle.style.backgroundImage = 'none';
+                heroTitle.style.webkitBackgroundClip = 'border-box';
+                heroTitle.style.backgroundClip = 'border-box';
+                heroTitle.style.webkitTextFillColor = '#ffffff';
+                heroTitle.style.textShadow = 'none';
+                heroTitleTop.style.color = '#c4c4c4';
+                heroTitleTop.style.background = 'none';
+                heroTitleTop.style.backgroundImage = 'none';
+                heroTitleTop.style.webkitBackgroundClip = 'border-box';
+                heroTitleTop.style.backgroundClip = 'border-box';
+                heroTitleTop.style.webkitTextFillColor = '#c4c4c4';
+                heroTitleBottom.style.display = 'inline-block';
+                heroTitleBottom.style.color = '#e6e6e6';
+                heroTitleBottom.style.background = 'linear-gradient(to bottom, #e6e6e6 0%, #b7c6dc 40%, #1f3f73 100%)';
+                heroTitleBottom.style.backgroundImage = 'linear-gradient(to bottom, #e6e6e6 0%, #b7c6dc 40%, #1f3f73 100%)';
+                heroTitleBottom.style.webkitBackgroundClip = 'text';
+                heroTitleBottom.style.backgroundClip = 'text';
+                heroTitleBottom.style.webkitTextFillColor = 'transparent';
+            }
+        }
+
+        applyHeroTitleStyle();
+        window.addEventListener('resize', applyHeroTitleStyle);
+    })();
+</script>
+
+<script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/tether.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap-switch.min.js"></script>
+<script src="assets/js/nouislider.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/js/paper-kit.js?v=2.0.1"></script>
+</body>
+</html>
