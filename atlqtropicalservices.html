@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Atlantiq RIA | Hotel</title>
+    <title>Atlantiq Tropical | Serviços</title>
 
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta name="viewport" content="width=device-width" />
@@ -20,14 +20,13 @@
     <style>
         :root {
             --atlq-navy: #252d40;
-            --atlq-navy-deep: #1d2434;
             --atlq-slate: #d9dde4;
             --atlq-gold: #caa24a;
             --atlq-gold-soft: #e0bb67;
             --atlq-ivory: #f7f4ef;
-            --atlq-sand: #d8cfc5;
             --atlq-ink: #2f2924;
             --atlq-copy: #6e635b;
+            --atlq-line: #e2d9d0;
         }
 
         body {
@@ -183,386 +182,222 @@
             background-color: var(--atlq-gold) !important;
         }
 
-        .hero-shell {
-            padding: 132px 0 54px;
-            background:
-                linear-gradient(180deg, rgba(217, 221, 228, 0.98) 0%, rgba(217, 221, 228, 1) 100%);
+        .page-shell {
+            padding: 132px 0 96px;
+            background: var(--atlq-slate);
         }
 
-        .hero-shell .container,
-        .intro-section .container,
-        .story-section .container,
-        .reviews-section .container,
-        .highlights-section .container {
+        .page-shell .container,
+        .feature-section .container,
+        .services-grid-section .container,
+        .lifestyle-section .container {
             width: 100%;
             max-width: 1480px;
         }
 
-        .ria-hero {
+        .services-hero {
             display: grid;
-            grid-template-columns: minmax(360px, 1fr) minmax(420px, 1.3fr);
-            align-items: stretch;
-            min-height: 700px;
-            background: rgba(255, 255, 255, 0.52);
-            box-shadow: 0 20px 52px rgba(74, 58, 44, 0.08);
-            overflow: hidden;
-        }
-
-        .ria-hero-copy {
-            display: flex;
+            grid-template-columns: minmax(360px, 0.95fr) minmax(460px, 1.2fr);
+            gap: 42px;
             align-items: center;
-            padding: 70px 64px;
-            background: rgba(255, 255, 255, 0.6);
+            padding: 24px 0 72px;
         }
 
-        .ria-hero-copy-inner {
-            max-width: 520px;
+        .services-hero-copy {
+            max-width: 540px;
         }
 
-        .ria-location {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
+        .services-kicker {
+            display: inline-block;
+            margin-bottom: 18px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: #7f8795;
+            color: #8f97a4;
         }
 
-        .ria-title {
+        .services-title {
             margin: 0 0 18px;
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 4.5rem;
+            font-size: 4.25rem;
             font-weight: 400;
-            line-height: 0.96;
+            line-height: 0.98;
             letter-spacing: -0.04em;
-            color: #28211d;
+            color: #241d19;
         }
 
-        .ria-stars {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 28px;
-            color: #9c938b;
-            font-size: 1.15rem;
-        }
-
-        .ria-summary {
-            margin-bottom: 34px;
-            font-size: 1.06rem;
-            line-height: 1.9;
-            color: #5e6674;
-        }
-
-        .ria-hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn-ria-primary,
-        .btn-ria-secondary {
-            min-width: 180px;
+        .services-lead {
             margin: 0;
-            padding: 14px 26px;
-            border-radius: 0;
-            font-weight: 700;
-            text-transform: none;
-            letter-spacing: 0;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #5d6674;
         }
 
-        .btn-ria-primary {
-            background: var(--atlq-gold);
-            border-color: var(--atlq-gold);
-            color: var(--atlq-navy);
+        .services-hero-media {
+            min-height: 620px;
+            background-image: url("assets/img/homepage.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            box-shadow: 0 20px 52px rgba(74, 58, 44, 0.1);
         }
 
-        .btn-ria-primary:hover,
-        .btn-ria-primary:focus {
-            background: var(--atlq-gold-soft);
-            border-color: var(--atlq-gold-soft);
-            color: var(--atlq-navy);
+        .feature-section {
+            padding: 0 0 92px;
+            background: var(--atlq-slate);
         }
 
-        .btn-ria-secondary {
-            background: transparent;
-            border: 1px solid #bcc3cf;
-            color: #3d4655;
+        .feature-intro {
+            margin-bottom: 30px;
+            font-size: 2.15rem;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            color: #2a2320;
         }
 
-        .btn-ria-secondary:hover,
-        .btn-ria-secondary:focus {
-            background: rgba(255, 255, 255, 0.55);
-            border-color: #aeb7c4;
-            color: #2f3744;
+        .feature-panel {
+            display: grid;
+            grid-template-columns: minmax(420px, 1.05fr) minmax(360px, 0.95fr);
+            gap: 54px;
+            align-items: center;
         }
 
-        .ria-hero-media {
-            min-height: 700px;
+        .feature-media {
+            min-height: 520px;
             background-image: url("assets/img/soroush-karimi.jpg");
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
         }
 
-        .intro-section {
-            padding: 88px 0 96px;
-            background: var(--atlq-slate);
-        }
-
-        .intro-copy {
-            max-width: 760px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .intro-mark {
-            margin-bottom: 26px;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #8f97a4;
-        }
-
-        .intro-title {
-            margin: 0 0 28px;
+        .feature-copy h2 {
+            margin: 0 0 24px;
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 3.3rem;
+            font-size: 3.4rem;
             font-weight: 400;
-            line-height: 1.12;
+            line-height: 1.08;
             letter-spacing: -0.03em;
-            color: #1f1915;
+            color: #221b18;
         }
 
-        .intro-copy p {
-            margin: 0 0 16px;
-            font-size: 1.03rem;
-            line-height: 1.9;
-            color: #4f5663;
-        }
-
-        .highlights-section {
-            padding: 0 0 88px;
-            background: var(--atlq-slate);
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .highlight-card {
-            padding: 30px 28px;
-            border: 1px solid rgba(126, 138, 159, 0.18);
-            background: rgba(255, 255, 255, 0.42);
-            min-height: 220px;
-        }
-
-        .highlight-card span {
-            display: inline-block;
-            margin-bottom: 14px;
-            font-size: 0.74rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #828b98;
-        }
-
-        .highlight-card h3 {
-            margin: 0 0 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c2520;
-        }
-
-        .highlight-card p {
+        .feature-copy p {
             margin: 0;
-            font-size: 0.98rem;
-            line-height: 1.8;
-            color: #66707f;
+            font-size: 1.04rem;
+            line-height: 1.85;
+            color: #65707f;
         }
 
-        .story-section {
-            padding: 88px 0;
+        .services-grid-section {
+            padding: 0 0 96px;
             background: var(--atlq-slate);
         }
 
-        .story-layout {
+        .services-grid {
             display: grid;
-            grid-template-columns: minmax(380px, 1.1fr) minmax(360px, 0.9fr);
-            gap: 42px;
-            align-items: stretch;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 34px;
         }
 
-        .story-media {
-            min-height: 560px;
-            background-image: url("assets/img/homepage.png");
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 18px 40px rgba(74, 58, 44, 0.06);
+        }
+
+        .service-card-media {
+            width: 100%;
+            min-height: 320px;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            box-shadow: 0 18px 44px rgba(72, 56, 44, 0.1);
         }
 
-        .story-copy {
+        .service-card-copy {
+            padding: 28px 30px 30px;
+        }
+
+        .service-card h3 {
+            margin: 0 0 14px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: #241d19;
+        }
+
+        .service-card p {
+            max-width: 36ch;
+            margin: 0;
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #616b7a;
+        }
+
+        .lifestyle-section {
+            padding: 0 0 96px;
+            background: var(--atlq-slate);
+        }
+
+        .lifestyle-panel {
+            display: grid;
+            grid-template-columns: minmax(360px, 0.9fr) minmax(420px, 1.1fr);
+            gap: 42px;
+            align-items: stretch;
+            padding: 56px;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            background: rgba(255, 255, 255, 0.34);
+        }
+
+        .lifestyle-copy {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 10px 0;
         }
 
-        .story-copy h2 {
+        .lifestyle-copy h2 {
             margin: 0 0 20px;
             font-family: Georgia, "Times New Roman", serif;
             font-size: 3rem;
             font-weight: 400;
             line-height: 1.12;
             letter-spacing: -0.03em;
-            color: #1e1915;
+            color: #241d19;
         }
 
-        .story-copy p {
+        .lifestyle-copy p {
             margin: 0 0 18px;
             font-size: 1rem;
-            line-height: 1.9;
-            color: #58616f;
+            line-height: 1.85;
+            color: #5f6977;
         }
 
-        .story-list {
+        .lifestyle-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px 18px;
-            margin-top: 16px;
+            gap: 14px 16px;
+            margin-top: 8px;
         }
 
-        .story-pill {
+        .lifestyle-pill {
             padding: 14px 16px;
-            border: 1px solid rgba(126, 138, 159, 0.18);
-            background: rgba(255, 255, 255, 0.46);
-            font-size: 0.88rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: #4a5565;
-        }
-
-        .reviews-section {
-            padding: 88px 0 96px;
-            background: var(--atlq-slate);
-        }
-
-        .reviews-panel {
-            display: grid;
-            grid-template-columns: minmax(460px, 1.1fr) 320px;
-            gap: 40px;
-            padding: 56px 54px;
-            border-top: 1px solid rgba(126, 138, 159, 0.18);
-            border-bottom: 1px solid rgba(126, 138, 159, 0.18);
-            background: rgba(255, 255, 255, 0.34);
-        }
-
-        .review-meta {
-            margin-bottom: 22px;
-        }
-
-        .review-name {
-            margin: 0 0 8px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #1f1915;
-        }
-
-        .review-date {
-            font-size: 0.96rem;
-            color: #8d96a4;
-        }
-
-        .review-quote {
-            margin: 0 0 26px;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 2.15rem;
-            font-weight: 400;
-            line-height: 1.34;
-            letter-spacing: -0.02em;
-            color: #1f1a16;
-        }
-
-        .review-actions {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-            margin-top: 36px;
-        }
-
-        .btn-review {
-            min-width: 210px;
-            padding: 16px 30px;
-            border: 1px solid #9ba6b6;
-            border-radius: 0;
-            background: transparent;
-            color: #2f3845;
-            font-weight: 500;
-            text-transform: none;
-        }
-
-        .btn-review:hover,
-        .btn-review:focus {
             background: rgba(255, 255, 255, 0.5);
-            color: #25303d;
+            border: 1px solid rgba(126, 138, 159, 0.18);
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #55606f;
         }
 
-        .review-note {
-            max-width: 420px;
-            margin: 0;
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: #818a97;
-        }
-
-        .review-score {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 18px;
-            padding-left: 42px;
-            border-left: 1px solid rgba(126, 138, 159, 0.18);
-        }
-
-        .review-score-top {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 3.1rem;
-            font-weight: 400;
-            color: #1f1915;
-        }
-
-        .review-score-label {
-            font-size: 1.05rem;
-            color: #8d96a4;
-        }
-
-        .review-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .review-dots span {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 1px solid #9f948a;
-            background: #8c94a2;
-        }
-
-        .review-dots span:last-child {
-            background: linear-gradient(90deg, #8c94a2 50%, transparent 50%);
-        }
-
-        .review-count {
-            font-size: 1rem;
-            color: #2e2621;
+        .lifestyle-media {
+            min-height: 440px;
+            background-image: url("assets/img/hotel2.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
         }
 
         .social-footer {
@@ -642,25 +477,10 @@
         }
 
         @media (max-width: 1199px) {
-            .ria-hero {
+            .services-hero,
+            .feature-panel,
+            .lifestyle-panel {
                 grid-template-columns: 1fr;
-                min-height: auto;
-            }
-
-            .ria-hero-media {
-                min-height: 560px;
-            }
-
-            .story-layout,
-            .reviews-panel {
-                grid-template-columns: 1fr;
-            }
-
-            .review-score {
-                padding-left: 0;
-                border-left: 0;
-                padding-top: 24px;
-                border-top: 1px solid #ddd4ca;
             }
         }
 
@@ -737,29 +557,23 @@
                 display: none !important;
             }
 
-            .hero-shell {
+            .page-shell {
                 padding-top: 112px;
             }
 
-            .ria-hero-copy {
-                padding: 48px 34px;
+            .services-title,
+            .feature-copy h2,
+            .lifestyle-copy h2 {
+                font-size: 2.8rem;
             }
 
-            .ria-title {
-                font-size: 3.5rem;
-            }
-
-            .intro-title,
-            .story-copy h2 {
-                font-size: 2.55rem;
-            }
-
-            .highlights-grid {
+            .services-grid,
+            .lifestyle-list {
                 grid-template-columns: 1fr;
             }
 
-            .story-list {
-                grid-template-columns: 1fr;
+            .lifestyle-panel {
+                padding: 34px;
             }
 
             .atlq-footer-bar {
@@ -769,37 +583,25 @@
         }
 
         @media (max-width: 767px) {
-            .ria-hero-copy {
-                padding: 40px 24px;
+            .services-title,
+            .feature-copy h2,
+            .lifestyle-copy h2 {
+                font-size: 2.2rem;
             }
 
-            .ria-title {
-                font-size: 2.8rem;
+            .services-hero-media,
+            .feature-media,
+            .service-card-media,
+            .lifestyle-media {
+                min-height: 280px;
             }
 
-            .ria-hero-media {
-                min-height: 360px;
+            .feature-intro {
+                font-size: 1.8rem;
             }
 
-            .intro-section,
-            .story-section,
-            .reviews-section {
-                padding: 72px 0;
-            }
-
-            .intro-title,
-            .story-copy h2,
-            .review-quote {
-                font-size: 2.1rem;
-            }
-
-            .reviews-panel {
-                padding: 34px 24px;
-            }
-
-            .review-actions {
-                flex-direction: column;
-                align-items: flex-start;
+            .lifestyle-panel {
+                padding: 24px;
             }
         }
     </style>
@@ -810,19 +612,19 @@
         <div class="container">
             <ul class="navbar-nav hidden-sm-down">
                 <li class="nav-item">
-                    <a href="atlqria.html" class="nav-link">Ria</a>
+                    <a href="atlqrtropical.html" class="nav-link">Tropical</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">|</a>
                 </li>
                 <li class="nav-item">
-                    <a href="atlqriarooms.html" class="nav-link">Quartos</a>
+                    <a href="atlqtropicalrooms.html" class="nav-link">Quartos</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">|</a>
                 </li>
                 <li class="nav-item">
-                    <a href="atlqriaservices.html" class="nav-link">Serviços</a>
+                    <a href="atltropical2services.html" class="nav-link">Serviços</a>
                 </li>
             </ul>
             <div class="navbar-translate">
@@ -855,135 +657,109 @@
     </nav>
 
     <div class="wrapper">
-        <section class="hero-shell">
+        <section class="page-shell">
             <div class="container">
-                <div class="ria-hero">
-                    <div class="ria-hero-copy">
-                        <div class="ria-hero-copy-inner">
-                            <div class="ria-location">
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span>Aveiro, Portugal</span>
-                            </div>
-                            <h1 class="ria-title">Atlantiq RIA</h1>
-                            <div class="ria-stars" aria-label="Classificacao de 4 estrelas">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p class="ria-summary">
-                                Um hotel contemporaneo desenhado para viver Aveiro com elegancia, luz natural e ligacao constante a agua.
-                                Entre arquitetura limpa, quartos confortaveis e uma localizacao privilegiada, esta pagina fica pronta para
-                                apresentares o posicionamento premium do Atlantiq RIA.
-                            </p>
-                            <div class="ria-hero-actions">
-                                <a href="atlqriarooms.html" class="btn btn-ria-primary">Ver quartos</a>
-                                <a href="#historia" class="btn btn-ria-secondary">Descobrir o hotel</a>
-                            </div>
-                        </div>
+                <div class="services-hero">
+                    <div class="services-hero-copy">
+                        <span class="services-kicker">Atlantiq RIA · Serviços</span>
+                        <h1 class="services-title">Serviços pensados para prolongar a experiência</h1>
+                        <p class="services-lead">
+                            No Atlantiq Ria, cada serviço foi pensado para acompanhar o ritmo da estadia. Entre momentos de bem-estar, gastronomia, lazer e celebração, o hotel oferece espaços que prolongam a experiência para além do quarto. Aqui, o conforto encontra a elegância e cada detalhe contribui para uma estadia mais completa, tranquila e memorável.
+                        </p>
                     </div>
-                    <div class="ria-hero-media" role="img" aria-label="Imagem principal do hotel Atlantiq RIA"></div>
+                    <div class="services-hero-media" role="img" aria-label="Imagem principal dos serviços do hotel"></div>
                 </div>
             </div>
         </section>
 
-        <section class="intro-section">
+        <section class="feature-section">
             <div class="container">
-                <div class="intro-copy">
-                    <div class="intro-mark">Atlantiq RIA</div>
-                    <h2 class="intro-title">Fantastico hotel na Veneza Portuguesa</h2>
-                    <p>
-                        No coracao de Aveiro, rodeado por canais, luz aberta e um ritmo mais sereno, o Atlantiq RIA nasce como um hotel urbano
-                        com identidade propria. A localizacao permite chegar rapidamente ao centro, explorar a ria e criar uma experiencia que
-                        mistura cidade, agua e descanso com naturalidade.
-                    </p>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="highlights-section">
-            <div class="container">
-                <div class="highlights-grid">
-                    <article class="highlight-card">
-                        <span>Localização</span>
-                        <h3>Entre canais, centro e costa</h3>
+                <div class="feature-intro">Serviços</div>
+                <div class="feature-panel">
+                    <div class="feature-media" role="img" aria-label="Spa e wellness do hotel"></div>
+                    <div class="feature-copy">
+                        <h2>Spa e Health Club</h2>
                         <p>
-                            Um ponto de partida ideal para descobrir Aveiro, a Costa Nova e a Barra, mantendo sempre uma base sofisticada e tranquila.
+                            Visite o nosso fantastico spa e health club e descobre um novo conceito de wellness no Atlantiq RIA.
+                            Massagens e tratamentos, zona de hidromassagem e piscina aquecida, bem como areas de relaxamento desenhadas
+                            para desacelerar o corpo e a mente. Um espaco onde o descanso tambem faz parte da identidade do hotel.
                         </p>
-                    </article>
-                    <article class="highlight-card">
-                        <span>Experiência</span>
-                        <h3>Design sereno e contemporâneo</h3>
-                        <p>
-                            Interiores luminosos, materiais suaves e uma leitura visual limpa que valoriza o conforto e o posicionamento premium.
-                        </p>
-                    </article>
-                    <article class="highlight-card">
-                        <span>Estadia</span>
-                        <h3>Perfeito para lazer e negócios</h3>
-                        <p>
-                            Uma pagina pronta para comunicar tanto escapadinhas de fim de semana como estadias corporate com mais qualidade.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="story-section" id="historia">
-            <div class="container">
-                <div class="story-layout">
-                    <div class="story-media" role="img" aria-label="Vista exterior do hotel junto a agua"></div>
-                    <div class="story-copy">
-                        <h2>Uma estadia pensada para desacelerar e descobrir Aveiro</h2>
-                        <p>
-                            O Atlantiq RIA combina um registo urbano com uma atmosfera muito ligada ao destino. A proposta e simples:
-                            dar ao hospede uma base elegante, funcional e memoravel para explorar a cidade e regressar sempre a um ambiente calmo.
-                        </p>
-
-                        <div class="story-list">
-                            <div class="story-pill">Vista urbana e ria</div>
-                            <div class="story-pill">Spa e wellness</div>
-                            <div class="story-pill">Restaurante de assinatura</div>
-                            <div class="story-pill">Salas para eventos</div>
-                            <div class="story-pill">Quartos premium</div>
-                            <div class="story-pill">Escapadinhas de fim de semana</div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="reviews-section">
+        <section class="services-grid-section">
             <div class="container">
-                <div class="reviews-panel">
-                    <div class="review-main">
-                        <div class="review-meta">
-                            <h3 class="review-name">Sylvie Narciso</h3>
-                            <div class="review-date">19/04/26</div>
-                        </div>
-                        <p class="review-quote">
-                            "Boa tarde, queremos expressar o nosso sincero agradecimento pela atencao e pelo cuidado que tiveram connosco."
-                        </p>
-                        <div class="review-actions">
-                            <button class="btn btn-review" type="button">Ver mais avaliacoes</button>
-                            <p class="review-note">
-                                Esta secao mostra como podes apresentar reviews, reputacao media e prova social numa pagina de hotel com um registo mais premium.
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-card-media" style="background-image: url('assets/img/ginasio.png');" role="img" aria-label="Ginásio do hotel"></div>
+                        <div class="service-card-copy">
+                            <h3>Ginasio</h3>
+                            <p>
+                                Pode praticar desporto durante a sua estadia em Aveiro. O hotel dispoe de um ginasio totalmente equipado,
+                                com passadeiras, bicicletas, elipticas e zona de forca, pensado para quem quer manter a rotina mesmo em viagem.
                             </p>
                         </div>
-                    </div>
-                    <aside class="review-score">
-                        <div class="review-score-label">Classificacao media</div>
-                        <div class="review-score-top">4.4/5</div>
-                        <div class="review-dots" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-card-media" style="background-image: url('assets/img/bar.png');" role="img" aria-label="Restaurante e bar do hotel"></div>
+                        <div class="service-card-copy">
+                            <h3>Restaurante e Bar</h3>
+                            <p>
+                                Uma proposta pensada para pequenos-almocos demorados, jantares mais elegantes e momentos de fim de tarde.
+                                A secao pode depois receber menus, assinatura do chef ou experiencias de harmonizacao sem alterar a composicao.
+                            </p>
                         </div>
-                        <div class="review-count">4126 avaliacoes</div>
-                    </aside>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-card-media" style="background-image: url('assets/img/piscina.png');" role="img" aria-label="Piscina interior e bem-estar"></div>
+                        <div class="service-card-copy">
+                            <h3>Piscina e Relaxamento</h3>
+                            <p>
+                                Um ambiente sereno para pausas mais longas, circuitos de bem-estar e uma leitura mais premium da estadia.
+                                Funciona muito bem como secao para piscina interior, hidroterapia ou zonas lounge reservadas aos hospedes.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-card-media" style="background-image: url('assets/img/sala.png');" role="img" aria-label="Salas para eventos e reunioes"></div>
+                        <div class="service-card-copy">
+                            <h3>Eventos e Reunioes</h3>
+                            <p>
+                                Um bloco ideal para comunicar salas de reuniao, eventos corporate, incentivos ou celebracoes privadas,
+                                com espaco para destacar flexibilidade, capacidades e serviços de apoio.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="lifestyle-section">
+            <div class="container">
+                <div class="lifestyle-panel">
+                    <div class="lifestyle-copy">
+                        <h2>Um hotel com serviços que acompanham o ritmo de cada estadia</h2>
+                        <p>
+No Atlantiq Ria, a estadia não se resume ao quarto. Cada espaço foi pensado para acompanhar diferentes momentos da viagem, desde o descanso no spa e na piscina, à energia do fitness, à gastronomia, ao bar e aos eventos.
+                        </p>
+                        <p>
+Com uma oferta completa e integrada, o hotel cria uma experiência mais fluida, confortável e memorável, onde cada serviço acrescenta valor à estadia e reforça a ligação entre bem-estar, lazer e hospitalidade.
+                        </p>
+                        <div class="lifestyle-list">
+                            <div class="lifestyle-pill">Spa</div>
+                            <div class="lifestyle-pill">Fitness</div>
+                            <div class="lifestyle-pill">Piscina</div>
+                            <div class="lifestyle-pill">Bar</div>
+                            <div class="lifestyle-pill">Eventos</div>
+                            <div class="lifestyle-pill">Experiências locais</div>
+                        </div>
+                    </div>
+                    <div class="lifestyle-media" role="img" aria-label="Espaco de lifestyle e experiencias do hotel"></div>
                 </div>
             </div>
         </section>
